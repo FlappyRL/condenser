@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+
+# 运行产物:向量可以重新生成,HTML 内联了 plotly.js 很大,都不入库
+outputs/

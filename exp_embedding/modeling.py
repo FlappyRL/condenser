@@ -12,7 +12,7 @@ import torch
 from huggingface_hub import snapshot_download
 from transformers import AutoModel, AutoTokenizer
 
-from config import MAX_LENGTH, MODEL_DIR, MODEL_ID
+from config import MAX_LENGTH, MODEL_ID
 
 
 def get_device():
@@ -25,19 +25,9 @@ def get_device():
 
 
 def load_model(device):
-    """权重下到 ./models/，不用 HF 默认 cache。"""
-    MODEL_DIR.mkdir(parents=True, exist_ok=True)
-
-    snapshot_download(
-        repo_id=MODEL_ID,
-        local_dir=str(MODEL_DIR.resolve()),
-    )
-
-    model_path = str(MODEL_DIR.resolve())
-
     # 左 padding，last_token_pool 才能直接取 -1
     tokenizer = AutoTokenizer.from_pretrained(
-        model_path,
+        MODEL_ID,
         padding_side="left",
         local_files_only=True,
     )
@@ -46,7 +36,7 @@ def load_model(device):
         tokenizer.pad_token = tokenizer.eos_token
 
     model = AutoModel.from_pretrained(
-        model_path,
+        MODEL_ID,
         local_files_only=True,
         torch_dtype=torch.float32,
     )

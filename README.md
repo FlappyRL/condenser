@@ -10,6 +10,9 @@
 
 回头蒸馏自己CoT时候可以用到hh
 
+> 运行以下程序前先CD过去!!!!  
+> ./condenser不需要CD
+
 # EXP_RESIDUAL
 首先思考一下这个问题  
 显然普通的Word2Vec不适用于不定长，没见过的长token串  

@@ -9,7 +9,6 @@ from pathlib import Path
 
 
 MODEL_ID = "Qwen/Qwen3-Embedding-0.6B"
-MODEL_DIR = Path("./models/Qwen3-Embedding-0.6B")
 
 OUTPUT_DIR = Path("./outputs/")
 

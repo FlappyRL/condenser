@@ -1,0 +1,26 @@
+# 运行环境:conda env `transformer`
+#   C:\Users\atomicbool\anaconda3\envs\transformer
+#
+# 该 env 里下面这些**已经装好了**,此文件主要用于记录版本、方便重建。
+# ==========================================================================
+
+# --- 必需 ---------------------------------------------------------------
+torch>=2.14            # 本机装的是 2.14.1+xpu(Intel Arc 走 XPU 加速)
+transformers>=5.18     # v5 起 `torch_dtype` 已废弃,代码里统一用 `dtype`
+numpy>=2.0
+tqdm>=4.66             # 可选,只是进度条
+
+# --- 可视化:二选一即可 ---------------------------------------------------
+# plotly       -> 产出可自由旋转的自包含 HTML(推荐,但本 env 里还没装)
+# matplotlib   -> 产出静态 PNG / 本地交互窗口(本 env 里已装 3.11.2)
+#
+# 想要交互 HTML 就装上:
+#   pip install plotly
+#
+# 注意:PCA 是手写的 numpy SVD,特意**不依赖 scikit-learn**;
+#      本 env 里也没有 sklearn / scipy,这是有意为之。
+
+# --- 说明 ---------------------------------------------------------------
+# 若要在别的机器重建 xpu 版 torch,需要 Intel 的索引:
+#   pip install torch --index-url https://download.pytorch.org/whl/xpu
+# 普通 CPU 机器直接 pip install torch 即可,代码会自动回退到 cpu。
