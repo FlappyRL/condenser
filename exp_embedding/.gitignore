@@ -1,0 +1,12 @@
+# huggingface 模型
+models/
+
+# 运行结果
+outputs/
+
+# Python编译文件
+__pycache__/
+*.pyc
+
+# ClaudeCode
+.claude
