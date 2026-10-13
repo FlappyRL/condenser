@@ -2,7 +2,7 @@
 
 ## 项目在干什么
 
-用 **Qwen3-0.6B-Base** 分析 5 段样本文本的表征，看哪一层的表征最贴近人的相似度判断。
+用 **Qwen3-0.6B-Base** 分析 5 段样本文本的表征
 
 流程：hook 抓每层 block 净更新 `block_output - block_input`，同时取完整 residual stream 作对照
 → 每层 × 每 pooling（mean / last）算 5×5 cosine 矩阵
